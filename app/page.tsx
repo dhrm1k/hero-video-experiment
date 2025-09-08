@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { videoConfig, getCurrentVideoInfo } from '../config/video-config'
 
 // Simple icons as SVGs to avoid import issues
 const PlayIcon = () => (
@@ -157,27 +158,20 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Video Background */}
+      {/* Video Background - Only your chosen video, no fallbacks */}
       <video
         id="hero-video"
-        autoPlay
-        muted
-        loop
-        playsInline
+        autoPlay={videoConfig.heroVideo.autoplay}
+        muted={videoConfig.heroVideo.muted}
+        loop={videoConfig.heroVideo.loop}
+        playsInline={videoConfig.heroVideo.playsInline}
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-        {/* Fallback background */}
+        <source src={videoConfig.heroVideo.src} type={videoConfig.heroVideo.type} />
       </video>
       
-      {/* Fallback background for when video doesn't load */}
-      <div 
-        className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900"
-        style={{ zIndex: -1 }}
-      ></div>
-      
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60"></div>
+      <div className={`absolute inset-0 bg-gradient-to-br ${videoConfig.overlay.gradient}`}></div>
       
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
@@ -218,20 +212,22 @@ const HeroSection = () => {
       </div>
 
       {/* Video Controls */}
-      <div className="absolute bottom-8 right-8 flex gap-3">
-        <button
-          onClick={togglePlayPause}
-          className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform border border-white/30"
-        >
-          {isPlaying ? <PauseIcon /> : <PlayIcon />}
-        </button>
-        <button
-          onClick={toggleMute}
-          className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform border border-white/30"
-        >
-          {isMuted ? <VolumeOffIcon /> : <VolumeIcon />}
-        </button>
-      </div>
+      {videoConfig.overlay.showControls && (
+        <div className="absolute bottom-8 right-8 flex gap-3">
+          <button
+            onClick={togglePlayPause}
+            className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform border border-white/30"
+          >
+            {isPlaying ? <PauseIcon /> : <PlayIcon />}
+          </button>
+          <button
+            onClick={toggleMute}
+            className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform border border-white/30"
+          >
+            {isMuted ? <VolumeOffIcon /> : <VolumeIcon />}
+          </button>
+        </div>
+      )}
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
