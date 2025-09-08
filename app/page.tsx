@@ -252,7 +252,7 @@ export default function Home() {
             Ready to transform your ideas?
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Let's work together to create something extraordinary that stands out and makes an impact.
+            Let&apos;s work together to create something extraordinary that stands out and makes an impact.
           </p>
         </div>
       </section>
