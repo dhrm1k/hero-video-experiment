@@ -170,39 +170,51 @@ const HeroSection = () => {
         <source src={videoConfig.heroVideo.src} type={videoConfig.heroVideo.type} />
       </video>
       
-      {/* Gradient Overlay */}
+      {/* Enhanced Gradient Overlay for Better Aesthetics */}
       <div className={`absolute inset-0 bg-gradient-to-br ${videoConfig.overlay.gradient}`}></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-blue-900/20"></div>
       
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-10 w-96 h-96 bg-purple-400/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-pink-400/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+      {/* Enhanced Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-48 h-48 md:w-72 md:h-72 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-10 w-64 h-64 md:w-96 md:h-96 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-20 left-20 w-56 h-56 md:w-80 md:h-80 bg-gradient-to-r from-pink-400/10 to-rose-400/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-48 md:h-48 bg-gradient-to-r from-indigo-400/5 to-violet-400/5 rounded-full mix-blend-multiply filter blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        
+        {/* Floating particles for aesthetic enhancement */}
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/20 rounded-full animate-float" style={{ animationDelay: '0s', animationDuration: '4s' }}></div>
+        <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-blue-300/30 rounded-full animate-float" style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
+        <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-purple-300/25 rounded-full animate-float" style={{ animationDelay: '2s', animationDuration: '5s' }}></div>
+        <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-pink-300/20 rounded-full animate-float" style={{ animationDelay: '0.5s', animationDuration: '4.5s' }}></div>
+        
+        {/* Subtle shimmer effect */}
+        <div className="absolute inset-0 animate-shimmer opacity-30"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="animate-pulse">
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <div className="max-w-4xl">
+            <div className="animate-fadeIn">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight text-shadow mobile-optimized-text">
                 Create
-                <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"> Beautiful </span>
+                <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent text-glow"> Beautiful </span>
                 Experiences
               </h1>
-              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed font-light">
+              <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 md:mb-8 leading-relaxed font-light max-w-3xl text-shadow mobile-optimized-text">
                 We craft digital experiences that inspire, engage, and transform your vision into reality with cutting-edge design and technology.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <button className="group bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 hover:scale-105 transform shadow-xl">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-12">
+                <button className="group bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 animate-gradient text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold hover:from-blue-600 hover:via-purple-700 hover:to-pink-700 transition-all duration-300 hover:scale-105 transform shadow-xl mobile-button">
                   <span className="flex items-center justify-center gap-2">
                     Start Your Journey
-                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </span>
                 </button>
-                <button className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-105 transform border border-white/30">
+                <button className="glass-effect text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-105 transform shadow-lg mobile-button">
                   Watch Our Story
                 </button>
               </div>
@@ -211,18 +223,18 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Video Controls */}
+      {/* Video Controls - Mobile Optimized */}
       {videoConfig.overlay.showControls && (
-        <div className="absolute bottom-8 right-8 flex gap-3">
+        <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 flex gap-2 md:gap-3">
           <button
             onClick={togglePlayPause}
-            className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform border border-white/30"
+            className="bg-white/20 backdrop-blur-sm text-white p-2 md:p-3 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform border border-white/30 shadow-lg"
           >
             {isPlaying ? <PauseIcon /> : <PlayIcon />}
           </button>
           <button
             onClick={toggleMute}
-            className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform border border-white/30"
+            className="bg-white/20 backdrop-blur-sm text-white p-2 md:p-3 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform border border-white/30 shadow-lg"
           >
             {isMuted ? <VolumeOffIcon /> : <VolumeIcon />}
           </button>

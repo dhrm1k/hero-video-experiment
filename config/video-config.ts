@@ -35,9 +35,9 @@ export const videoConfig = {
     playsInline: true, // Required for mobile devices
   },
   
-  // Video overlay settings
+  // Video overlay settings - Enhanced for aesthetics
   overlay: {
-    gradient: 'from-black/40 via-transparent to-black/60',
+    gradient: 'from-black/50 via-purple-900/30 to-black/60',
     showControls: true, // Show play/pause and mute buttons
   }
 } as const
