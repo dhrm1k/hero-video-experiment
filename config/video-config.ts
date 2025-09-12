@@ -6,9 +6,9 @@
 export const videoLibrary = {
   // Available videos (add your own here)
   'aarav-investment': {
-    src: '/videos/aarav-investment-clip.mp4',
-    name: 'Aarav Investment Video',
-    description: 'Investment focused hero video',
+    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    name: 'Big Buck Bunny',
+    description: 'Just a demo video',
     duration: '30s',
   },
 
